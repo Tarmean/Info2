@@ -1,0 +1,15 @@
+a) Der Takt aller Pipeline Stufe muss der selbe sein, also der des langsamsten Befehls. In diesem Fall die Befehlsdekodierung. Allerdings kommen noch 20 ps zwischen den Befehlen zum kopieren zwischen den Pipeline Stufen hinzu. Also 148 ps. 
+
+Ohne Pipeline währe die minimale Taktperiode 130, allerdings könnten die längeren Befehle über mehrere Takte ausgeführt werden so das diese auf beispielsweise 70 reduziert werden könnte.
+
+b)110+130+90+120+70=520
+Allerdings muss für die längste Instruktion angepasst werden.
+5*130=650
+4*20=80
+80+650=730
+
+Also braucht die Pipeline Architektur 730 und die Einzeltakt-Architektur 650 ps.
+
+c) Insgesamt müssen 500 Stufen durchschritten werden. Die ersten und letzten 4 Takte bearbeiten jeweils 10 Stufen, sonst 5 Stufen pro Takt. 480/5=96. Insgesamt also 96+8=104 Takte.
+
+d) Irgendeine außer der längsten zu halbieren würde die Taktperiode nicht verändern. Die nächst langsamere ist MEM, wodurch die Taktzeit auf 120+20=140 verringert würde. 

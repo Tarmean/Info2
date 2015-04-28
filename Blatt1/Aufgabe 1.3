@@ -1,0 +1,135 @@
+1.
+Ungerade:
+1011|0
+0011|1
+1101|0
+0101|1
+----
+1110 1
+Gerade:
+1011|0
+0011|1
+1101|0
+0101|1
+----
+1011 0
+
+
+
+2. Ungerade Parität. Der Fehler ist wohl im Prüfbit auf der 3. Zeile:
+
+1010|0
+1110|1
+0010|1
+1011|1
+----
+1101|1
+
+3.
+i)
+	1001 1111 0101 1010
+	1011 1111 0101 1111
+	0010 0000 0000 0101
+Also Hamming-Distanz von 3
+ii)
+	1101 1111 0111 1010
+	1010 1111 0001 1011
+	0111 0000 0110 0001
+Also Hamming-Distanz von 6
+
+4.Mittels Program am Ende
+Hamming Distanzen:
+Von 1 zu 2 Distanz 3
+Von 1 zu 3 Distanz 2
+Von 1 zu 4 Distanz 5
+Von 2 zu 3 Distanz 5
+Von 2 zu 4 Distanz 4
+Von 3 zu 4 Distanz 7
+
+Niedrigste Distanz 2
+ 
+5.
+11011000101
+p1  = 1 1 1 1   = 1
+p2  = 1 11 01   = 1
+p3  = 110 0101  = 1
+p4  = 1000101   = 0
+
+11 1 1 101 0 1000101
+Also ist der (15,11) Hammingcode 111110101000101
+
+6.
+010 1110 1011 0000
+0110 0110 000
+0 =p1= 010100 = 0
+1 =p2 = 11 11 00 = 1
+1 =p3 = 0011 = 1
+1 =p4 = 0000 = 1
+Also stimmen alle Prüfbits mit den übertragenden Bits.
+
+7.
+Es gibt vor dem umgekippten bit x-1 Paritätsbits. Das prüfbit n ist umgekippt wenn (x-1) div (n+1) mod (n+1) = 0
+
+8.
+Mit einem Prüfbit können alle Fehler mit ungeraden Anzahl von gekippten Bits gefunden werden. In diesem Fall 3:
+Sei a die Ursprungsnachricht und b die Fehlübertragung und p das parity bit.
+
+a^b hat also drei Einsen also mit der Parity 1.p&1 != p
+Also kann der Fehler gefunden werden! 
+
+
+
+
+
+Anhang:
+public class HammingDistance
+{
+	public static void main(String args[])
+	{
+		char[][] chars = new char[args.length][];
+		for(int i = 0; i<args.length; i++)
+		{
+			chars[i] = args[i].toCharArray();
+		}
+
+		int max = distance(chars[0], chars[1]);
+		for(int i = 0; i<args.length; i++)
+		{
+			for(int j=i+1; j<args.length; j++)
+			{
+				int temp = distance(chars[i], chars[j]);
+				System.out.println("Von " + (i+1) + " zu " + (j+1) + " Distanz " + temp);
+				if(temp<max)
+				{
+					max = temp;
+				}
+			}
+		}
+		System.out.println(max);
+	}
+	
+	private static int distance(char[] a,char[] b)
+	{
+		int diff = 0;
+		char[] longer, shorter;
+		if(a.length > b.length)	
+		{
+			longer = a;
+			shorter= b;
+		}else{
+			
+			longer = b;
+			shorter= a;
+		}
+		for(int i = 0; i<shorter.length; i++)
+		{
+			if(longer[i]!=shorter[i])
+			{
+				diff++;
+			}
+		}
+		diff += longer.length-shorter.length;
+		return diff;
+	}
+}
+"1001111101011010", "1011111101011111", "1101111101111010", "1010111100011011"
