@@ -1,0 +1,8 @@
+Enter a number: Enter another number: Register Dump # 1
+EAX = 00000228 EBX = 00000228 ECX = 257110E5 EDX = BFD94CA4
+ESI = 00000000 EDI = 00000000 EBP = BFD94C58 ESP = BFD94C38
+EIP = 080484E7 FLAGS = 0216             AF PF   
+Memory Dump # 2 Address = 0804A054
+0804A050 72 3A 20 00 59 6F 75 20 65 6E 74 65 72 65 64 20 "r: ?You entered "
+0804A060 00 20 61 6E 64 20 00 2C 20 74 68 65 20 73 75 6D "? and ?, the sum"
+You entered 510 and 42, the sum of these is 552
