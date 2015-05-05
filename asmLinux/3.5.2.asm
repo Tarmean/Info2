@@ -42,16 +42,20 @@ name db    "Cyril", 0       ; don't forget nul terminator
 segment .text
         global  asm_main
 asm_main:
-        enter   0,0               ; setup routine
-        pusha
+        enter   0,0               ; push ebp to stack, move esp to ebp so stack is available without worries
+;then reduce ebp by the amount that it is supposed to allocate
+; First 0 for amount of stack space to allocate, second one for nesting level
+        pusha 		;either pushaw or pushad, in case of 32 bit:
+;pushes EAX, ECX, EDX, EBX, ESP(before instruction), EBP, ESI and EDI in succession and decrements esp by 32
 
         mov     eax, name      ; print out name
         call    print_string
 	call 	print_nl
 
-        popa
-        mov     eax, 0            ; return back to C
-        leave                     
+        popa 		;restore registers saved by pusha
+;Note that it throws the value of ESP away
+        mov     eax, 0            ;set return value
+        leave            ;move ebp to esp, restore ebp from stack         
         ret
 
 
