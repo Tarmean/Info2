@@ -1,0 +1,5 @@
+Dies kommt auf einige Faktoren an. FIFO wäre extrem ineffizient wenn
+wesentlich mehr Steuererklärungen abwechselnd bearbeitet werden müssen als der
+Cache - wie auch immer dieser aussehen würde - fassen kann. Es würde nämlich ein
+zyklisches Muster entstehen wodurch jeder Zugriff ein Cache miss wäre.
+

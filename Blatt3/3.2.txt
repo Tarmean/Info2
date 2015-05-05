@@ -1,0 +1,33 @@
+a)
+  Qx.y hat x Stellen vor dem Komma und Y Stellen nach dem Komma. Also
+  insgesamt X+Y stellen. Das Vorzeichen wird dabei nicht mit gezählt. 
+
+b)
+  -6.3752 in Q3.4
+  v mmm.nnn
+
+  v ^= - ^= 1
+
+  mmm:
+  6 = (4 + 2 + 0*1) = (110)b
+
+  nnn;
+  0.3752 ~= (0*0.5 + 0.25 + 0.125 + 0*0.0625) = (0110)b
+
+  -6.3752 = (11100110)Q3.4
+
+c)
+  (11100110)Q3.4
+  (vmmmnnnn)
+
+  v = 1 ^= -
+
+  mmm = (110)b = 4 + 2 = 6
+
+  nnn = (0110)b = 0*0.5 + 0.25 + 0.125 + 0*0.0625=0.375
+
+  (11100110)Q3.4 = (-(6 + 0.375)) = -6.375
+
+  Die Zahl ist ungenau gespeichert worden wodurch das Ende abgeschnitten
+  wurde.
+

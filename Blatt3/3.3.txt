@@ -1,0 +1,17 @@
+3)
+  -5.25
+  v eeeeeeee mmmmmmmmmmmmmmmmmmmmmmm
+
+  v ^= - ^= 1
+
+  5.25 = (4 + 0*2 + 1 + 0*0.5 + 0.25) = (101.01)b
+  Höchste stelle ist 4 = 2^2
+
+  Offset ist 127, Exponent ist also (127 + 2) = 129
+  129 = (128 + 1) = (1000 0001)b
+
+  Leitende 1 von der Mantisse abschneiden, Rest verschieben und auffüllen:
+  (0.101) ^= (01010000000000000000000)
+
+  Aneinanderhängen:
+  (1 1000 0001 01010000000000000000000)
