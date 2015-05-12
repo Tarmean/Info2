@@ -1,10 +1,19 @@
 a)
-32 MiByte * 1024 = 32768 KiByte
-32768 / 8 = 4096 Pages
-Da der Prozess die obersten und untersten 32 MiByte belegt: 8192 Pages
-Jeder Page Eintrag belegt 4 Bytes.
-8192 * 4 = 32768 Bytes Seitentabelle!
+
+Mit einer 32 bit Adresse sind 2^32 bit = 4 GiB adressierbar.  4GiB/8KiB/Seite = 2^19 Seiten = 524288 Seiten.
+524288 Seiten * 4 Bytes/Seite = 2097152 Bytes = 2 MiBytes
+Wenn die Seitentabelle einstufig ist muss jeder Verweis gespeichert werden, selbst wenn dies viel mehr als der genutzte oder physisch vorhandene Speicher ist.
 
 b)
 9 Bit länge erste ebene, 10 Bit Zweite Ebene.
+32 MiByte = 32 * 1024 KiB = 32768 KiB
+32768 KiB / 8 KiB / Seite = 4096 Seiten
+
+4096 Seiten / 1024 Seiten pro Seitentabelle = 4 Seitentabellen
+Jede Seitentabelle verbraucht 4 * 1024 = 4 KiB Speicher.
+Da die 32 MiByte am Anfang und am Ende stehen, also zweimal:
+4 * 4 KiB * 2 + 512 * 4 Byte = 9 KiB
+
+Allerdings haben Seitentabellen normalerweise die gleiche Größe wie Seiten, oder? Dann wäre es:
+4*8Kib*2 + 1*8Kib = 65 KiB
 
