@@ -1,0 +1,10 @@
+a)
+32 MiByte * 1024 = 32768 KiByte
+32768 / 8 = 4096 Pages
+Da der Prozess die obersten und untersten 32 MiByte belegt: 8192 Pages
+Jeder Page Eintrag belegt 4 Bytes.
+8192 * 4 = 32768 Bytes Seitentabelle!
+
+b)
+9 Bit länge erste ebene, 10 Bit Zweite Ebene.
+
