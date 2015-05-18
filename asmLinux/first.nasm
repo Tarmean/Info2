@@ -1,3 +1,5 @@
+
+
 ;
 ; file: first.asm
 ; First assembly program. This program asks for two integers as
@@ -32,9 +34,8 @@ segment .data
 ;
 ; These labels refer to strings used for output
 ;
-prompt1 db    "Enter z: ", 0       ; don't forget nul terminator
-prompt2 db    "Enter b: ", 0
-warning db    "b has to be between 0 and 31", 0
+prompt1 db    "Enter a number: ", 0       ; don't forget nul terminator
+prompt2 db    "Enter another number: ", 0
 outmsg1 db    "You entered ", 0
 outmsg2 db    " and ", 0
 outmsg3 db    ", the sum of these is ", 0
@@ -58,8 +59,6 @@ input2  resd 1
 segment .text
         global  asm_main
 asm_main:
-;sure you never saw these comments before...
-;nothing to see here, move along :P
         enter   0,0               ; setup routine
         pusha
 
@@ -75,19 +74,9 @@ asm_main:
         call    read_int          ; read integer
         mov     [input2], eax     ; store into input2
 
-        test    eax, eax          ; bitwise and, sets negative, zero and parity flags
-        js      broken_input      ; jump if sign, i.e. if eax < 0
-        cmp     eax, 32           ;actually similar to test but substracts instead of and
-        js      broken_input      ; jump if sign, i.e. if eax < 0
-
-        mov     eax, [input1]
-        mov     ebx, 1
-        sub     ebx, 1
-        mov     cl, [input2]      ; shift 1 by (b-1) bits left, leaving an 1 at point b and 0 everywhere else
-        shl     ebx, cl
-        xor     eax, ebx          ; xor that with a
-        call    print_int
-        call    print_nl
+        mov     eax, [input1]     ; eax = dword at input1
+        add     eax, [input2]     ; eax += dword at input2
+        mov     ebx, eax          ; ebx = eax
         dump_regs 1               ; dump out register values
         dump_mem 2, outmsg1, 1    ; dump out memory
 ;
@@ -112,8 +101,4 @@ asm_main:
         leave                     
         ret
 
-broken_input:
-        popa
-        mov     eax, 0            ; return back to C
-        leave                     
-        ret
+

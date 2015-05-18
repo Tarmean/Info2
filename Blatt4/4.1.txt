@@ -1,0 +1,27 @@
+a)
+26564
+26564 = 16384+ 8192 + 1024 + 512  + 256  + 128  + 64   + 4 = (110011111000100)2
+2. Komplement: (-0110011111000100)2 = (1001100000111011)2 + (1)2 = (1001100000111100)2
+Little Endian, also bleibt die wird die Reihenfolge der Bytes umgedreht, die Bytes selber verändern sich jedoch nicht
+(10011000 00111100)2 => (00111100 10011000)2
+
+35
+35 = 32+ 0+ 0+ 0+ 2+ 1 = (0000000000100011)2
+Little Endian, also least significant bit als erstes. Zahl umdrehen:
+(00000000 00100011)2 => (00100011 00000000)2
+ 
+Aneinanderhängen:
+00111100 10011000 00100011 00000000
+
+b)
+Die Zahlen hätten die gleiche Reihenfolge, nur die Reihenfolge der Bytes innerhalb der Zahl ist durcheinander
+
+(00111100 10011000)2 = 8192 + 4096 + 2048 + 1024 + 128 + 16 + 8 = 15512
+
+
+
+(00100011 00000000)2 = 8192 + 512 + 256 = 8960
+
+
+Oder zusammen:
+(00111100 10011000 00100011 00000000)2 = 536870912 + 268435456 + 134217728 + 67108864 + 8388608 + 1048576 + 524288 + 8192 + 512 + 256 = 1016603392
