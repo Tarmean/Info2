@@ -1,0 +1,32 @@
+a)
+Zero Flag: Gesetzt wenn das Ergebnis der letzten Berechnung 0 war, sonst resettet.
+
+Negative Flag(/Sign Flag): Gesetzt wenn das most significant bit in dem Ergebnis der letzten Berechnung 1 war, sonst resettet. In zweier komplement Darstellung bedeutet dies das das Ergebnis negativ war.
+
+Parity Flag: Zeigt an ob die Anzahl der Einsen in dem Ergebnis der letzten Berechnung gerade war. Scheinbar meistens gesetzt bei gerader Anzahl und sonst resettet.
+
+Adjust Flag: Gesetzt wenn ein Übertrag bei addition oder substraktion zwichen den niedrigsten 4 bit and den höheren aufgetreten ist, sonst resettet.
+
+Carry Flag: Gesetzt wenn ein Übertrag bei Addition oder Substraktion in das most significant bit aufgetreten ist, sonst resettet.
+
+Overflow Flag: Gesetzt wenn das Ergebnis einer Addition oder Substraktion zu groß ist um gefasst zu werden, wenn es also einen Übertrag aus dem most significant bit aufgetreten ist. Sonst resettet. 
+
+
+b)
+
+1. Speichert 07ffffffd in eax Addiert die hexadezimalzahl 07ffffffd und 3 und speichert das Ergebnis in eax. Das ergebniss ist 80000000h oder 10000000000000000000000000000000b
+SF und CF werden gesetzt.
+
+2.
+Die Schritte sind genau wie bei 1 aber diesmal werden 0ffffff11h und 0efh addiert, das Ergebnis ist 100000000 oder 100000000000000000000000000000000b auf 32 bit ist dies allerdings 00000000000000000000000000000000b
+ZF, PF, OF
+
+3.
+Hier werden die Zahlen in Dezimal angegeben und die zweite wird vor dem addieren in ein eigenes Register geschoben aber sonst verändert sich nicht viel. 10+20=30= 00000000000000000000000000011110 
+PF, AF
+
+4.
+Anmerkung: 0fh = 15
+15+15=30= 00000000000000000000000000011110
+Also fast genau das gleiche wie die letzte Aufgabe. Es gibt immer noch einen Übertrag vom 4. zum 5. Bit daher wird AF immer noch gesetzt.
+PF, AF

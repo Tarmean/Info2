@@ -79,8 +79,8 @@ asm_main:
 
         test    cl, cl         ; bitwise and, sets negative, zero and parity flags
         js      broken_input      ; jump if sign, i.e. if eax < 0
-        cmp     cl, 32           ;actually similar to test but substracts instead of and
-        je      broken_input      ; jump if sign, i.e. if eax > 32, note that cl is already one smaller than the input
+        cmp     cl, 32           ;actually similar to test but substracts instead of ands
+        jns      broken_input      ; jump if sign, i.e. if eax > 32, note that cl is already one smaller than the input
 
         ;mov     eax, [input1]
         mov     ebx, 1

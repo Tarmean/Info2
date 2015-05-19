@@ -1,0 +1,56 @@
+a)
+*ausgabe wurde nicht mit malloc belegt, muss also auch nicht mit free freigegeben werden da es nur auf dem stack liegt. Dadursch steht der speicher wieder zur verügung wenn die Methode verlassen wird. Eine freigabe mit free würde eine segmentation fault verursachen.
+Außerdem gibt es keine überprüfung ob malloc erfolgreich war.
+
+Fehlerhafte Zeile: 6, vielleicht auch 3 da ziffern nicht auf NULL überprüft wird
+#include<stdlib.h>
+int main()
+{
+    char *ausgabe="Speicherverwaltung\n";
+    char *ziffern=malloc(sizeof(char)*10);
+    if(ziffern==NULL){/*ausgelassen:Fehlermeldung,Programmbeenden*/}
+    for (int i=0; i<11; i++){
+        *(ziffern+i) = '0' + i ;
+    }
+    free(ziffern);
+}
+
+b)
+sizeof muss auf eine klasse verwendet werden, also 2*sizeof(int) statt sizeof(2*int)
+i zeigt auf k statt auf den von malloc belegten bereich. Daher muss free(j) statt free(i) verwendet werden.
+Fehlerhaften Zeilen: 3, 9
+#include<stdlib.h>
+int main()
+{
+    int *i;
+    for(int k=0;k<10;k++){
+        i=malloc(2*sizeof(int));
+        if(i==NULL){/*ausgelassen:Fehlermeldung,Programmbeenden*/}
+        int *j;
+        j=i;
+        i++;
+        *i=k;
+        free(j);
+    }
+}
+
+c)
+Die Größe von einem Zeiger und char müssen nicht unbedingt übereinstimmen, deher lieber sizeof(int*) nutzen. Außerdem werden in dem program vier Bereiche belegt. Das obere Level der Matrix und die drei Untermatrixen. Nur eine wird freigegeben.
+Fehlerhafte Zeilen: 2, 9
+#include<stdlib.h>
+int main()
+{
+    int **matrix;
+    matrix=malloc(3*sizeof(int*));
+    if(matrix!=NULL){
+        for(int i=0;i<3;i++){
+            matrix[i]=malloc(3*sizeof(int));
+        }
+        /*ausgelassen:UeberprufungundetwasmitderMatrixtun*/
+    }
+    for(int i=0;i<3;i++){
+        free(matrix[i]);
+    }
+    free(matrix);
+}
+
