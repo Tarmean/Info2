@@ -1,0 +1,8 @@
+4 way set associative
+4 words pro cache eintrag
+word ist 2 byte
+cache 256 byte groß
+
+256/(4*4*2)= 8 Zeilen = 4 zeilen
+zzzzaabb
+11110000 AND
