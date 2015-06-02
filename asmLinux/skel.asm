@@ -25,6 +25,7 @@ asm_main:
         enter   0,0               ; setup routine
         pusha
 
+
 ;
 ; code is put in the text segment. Do not modify the code before
 ; or after this comment.

@@ -1,0 +1,7 @@
+b) Die Ausgabe ist die Summe von i^2 mit i von a bis b
+
+
+c)
+Geben Sie die untere Schranke a ein: 4
+Geben Sie die obere Schranke b ein: 6
+Das Ergebnis s lautet: 405
