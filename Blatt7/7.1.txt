@@ -1,7 +1,14 @@
-b) Die Ausgabe ist die Summe von i^2 mit i von a bis b
+1)
+Assembler Kenntnisse erlauben für ein besseres Verständnis von der Funktionsweise von Computern. 
+Außerdem könnte es theoretisch nützlich sein um für besonders begrenzten Systemen oder sehr 
+wichtige abschnitte direkt zu schreiben auch wenn das vermutlich eher zu schlechtere
+Performance als die Compiler Version führen würde.
 
+2)
+Vor allem das entwickeln extrem langsamer ist. Außerdem ist ein mit Assembly
+entwickeltes Programm natürlich überhaupt nicht portabel.
 
-c)
-Geben Sie die untere Schranke a ein: 4
-Geben Sie die obere Schranke b ein: 6
-Das Ergebnis s lautet: 405
+3)
+In einem tatsächlichen Programm vermutlich nur in besonders Performance-kritischen
+Abschnitten oder für spezielle Anwendungen die in sehr limitierten Umgebungen
+funktionieren müssen.

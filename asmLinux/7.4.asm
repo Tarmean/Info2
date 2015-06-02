@@ -1,4 +1,5 @@
 
+
 ;
 ; file: skel.asm
 ; This file is a skeleton that can be used to start assembly programs.
@@ -8,49 +9,53 @@ segment .data
 ;
 ; initialized data is put in the data segment here
 ;
-
+abortmsg db    "Please give two arguments", 0
 
 segment .bss
-returnvalue resd 1
 ;
 ; uninitialized data is put in the bss segment
 ;
 
 
- 
+
 
 segment .text
-        global  asm_main
-asm_main:
-        enter   0,0               ; setup routine
-        pusha
-        mov eax, [ebp+8]          ; load parameters
-        mov edx, [ebp+12]
+        global euclidRec
 
-loops:
-        cmp edx, 0                ; return if rest (a) equals zero
-        jz return
-        mov ebx, edx              ; b = r
-        mov edx, 0
-        div ebx
-        mov eax, ebx              ; a = b
-        jmp loops                 ; jump back to loop
-;
-; code is put in the text segment. Do not modify the code before
-; or after this comment.
-;
+euclidRec:
+        push ebp                ;store old stack position
+        push ebx                ;store veriables that are changed
+        push edx
+        mov ebp, esp
+        mov eax, [ebp+16]       ;load parameters
+        mov ebx, [ebp+20]
+
+
+        mov edx, 0              ;do the modulo
+        div ebx                 ;i am too lazy to do so but it would probably
+                                ;be significantly faster to divide with ex and ax
+
+
+        mov eax, ebx            ;move return value to eax
+        cmp edx, 0              ;if no remainder remains return
+        je return
+
+        push edx                ;recursion
+        push ebx
+        call euclidRec
+        add esp, 8              ;take parameters from stack, should be faster than popping?
+
+
 return:
-        mov [returnvalue], ebx      ; save the return value before popa snuffs it out
-        popa
-        mov     eax, [returnvalue]            ; return back to C
-        leave                     
+
+        pop edx                 ;restore parameters except eax
+        pop ebx
+        pop ebp
         ret
 
-;while(b!=0)
-    ;r = a mod b
-    ;a = b
-    ;b = r
-
+;euclid(a, b)
+;if(b==0) return a
+; return euclid(b, a mod b)
 
 ;#include "cdecl.h"
 ;#include <stdio.h>
@@ -73,3 +78,4 @@ return:
 ;  printf("Antwort:%d %d %d\n",a1, a2, answer);
 ;  return 0;
 ;}
+;
