@@ -1,0 +1,26 @@
+1)
+    0. Ordnung 9, {0}
+    1. Ordnung 10, {0,1}
+    2. Ordnung 2, {1,5,9,13}
+    3. Ordnung 0
+
+2)
+    ¬a¬b¬c¬d ∨ a¬b¬c¬d ∨ a¬bc¬d ∨ ¬ab¬c¬d ∨
+    ¬ab¬cd ∨ ¬abc¬d ∨ ¬abcd ∨ a¬b¬cd ∨ a¬bcd
+
+3)
+    {1,5,9,13},
+    {2,6,10,14},
+    {0,1},
+    {0,2}
+
+4)
+    {1,5,9,13},
+    Da 5, 9 13 nur in diesen Implikanten vorkommen.
+    {2,6,10,14}
+    Da 6, 10, 14 nur in diesen Implikanten vorkommen.
+    Es ist also unmöglich die Funktion aus Primimplikanten ohne diese beiden zu bilden.
+
+
+5)
+    a¬b ∨ ¬ab ∨ ¬a¬c¬d

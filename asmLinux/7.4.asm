@@ -74,7 +74,7 @@ return:
 ;  int answer;
 ;  int a1 = atoi(argv[1]);
 ;  int a2 =  atoi(argv[2]);
-;  answer = asm_main(a1,a2);
+;  answer = euclidRec(a1,a2);
 ;  printf("Antwort:%d %d %d\n",a1, a2, answer);
 ;  return 0;
 ;}
